@@ -15,8 +15,13 @@ class CreatePortfolioesTable extends Migration
     {
         Schema::create('portfolioes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('text');
             $table->string('customers');
             $table->string('alias');
+            $table->string('img');
+            $table->string('filter_alias');
+            $table->foreign('filter_alias')->references('alias')->on('filters');
             $table->timestamps();
             $table->softDeletes();
         });

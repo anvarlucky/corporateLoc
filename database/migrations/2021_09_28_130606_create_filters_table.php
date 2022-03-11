@@ -16,7 +16,7 @@ class CreateFiltersTable extends Migration
         Schema::create('filters', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('alias');
+            $table->string('alias')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
