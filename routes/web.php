@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TestController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
 Route::resource('/',IndexController::class,['index']);
+Route::resource('tests', TestController::class);
+/*    ->missing(function (Request $request) {
+        return Redirect::route('test.index');
+    });*/
+Route::apiResource();
+
