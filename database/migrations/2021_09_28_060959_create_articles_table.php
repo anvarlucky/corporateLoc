@@ -17,10 +17,12 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('text');
-            $table->string('alias');
-            $table->unsignedBigInteger('user_id');
+            $table->text('description');
+            $table->string('alias')->unique();
+            $table->string('img');
+            $table->unsignedBigInteger('user_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->default(1);
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
             $table->softDeletes();

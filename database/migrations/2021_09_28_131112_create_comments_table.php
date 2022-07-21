@@ -20,7 +20,7 @@ class CreateCommentsTable extends Migration
             $table->string('email');
             $table->string('site');
             $table->integer('parent_id');
-            $table->unsignedBigInteger('article_id');
+            $table->unsignedBigInteger('article_id')->default(1);
             $table->foreign('article_id')->references('id')->on('articles');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
